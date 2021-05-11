@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Requests\SingupRequest;
 
 class AuthController extends Controller
 {
@@ -44,7 +45,7 @@ class AuthController extends Controller
         return response()->json(auth()->user());
     }
 
-    public function singup(Request $request){
+    public function singup(SingupRequest $request){
 
         User::create($request->all());
         return $this->login($request);
