@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::view('/','acceuil');
 Route::view('/{any}','acceuil');
+Route::view('/{any}/{any1}','acceuil');
 
 Auth::routes();
 

@@ -11,6 +11,19 @@ window.Vue = require('vue').default;
 import Vuetify from 'vuetify';
 Vue.use(Vuetify);
 
+
+// Importation pour la library vuesimpleMDE
+
+import VueSimplemde from 'vue-simplemde'
+import 'simplemde/dist/simplemde.min.css'
+
+Vue.component('vue-simplemde', VueSimplemde)
+
+// importation pour sotker les dondéé tes qui'il ont été enregistré grace a vueSimplemde
+
+import md from 'marked'
+window.md = md
+
 //importation du helpers pour les users
 import User from './Helpers/User'
 window.User = User
