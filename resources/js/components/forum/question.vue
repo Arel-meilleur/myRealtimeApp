@@ -1,7 +1,7 @@
 <template>
   <v-card
-    class="mx-auto"
-    max-width="400"
+    class="mx-auto mt-2"
+
   >
 
     <v-card-title>

@@ -5,7 +5,7 @@
     height="200px"
     tile
   >
-    <v-toolbar dense>
+    <v-toolbar dense color="indigo" dark>
       <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
 
         <v-toolbar-title>Meilleur</v-toolbar-title>
@@ -49,7 +49,7 @@ export default {
 
                 {title : 'Forum', to:'/forum',show:true},
                 {title : 'Ask Question', to:'/ask',show: User.loggedIn()},
-                {title : 'Category', to:'/category',show: User.loggedIn()},
+                {title : 'Category', to:'/category',show: User.admin()},
                 {title : 'Login', to:'/login',show: !User.loggedIn()},
                 {title : 'Logout', to:'/logout',show: User.loggedIn()},
             ]

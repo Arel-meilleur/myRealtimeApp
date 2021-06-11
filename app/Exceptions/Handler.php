@@ -50,22 +50,22 @@ class Handler extends ExceptionHandler
 
          $this->renderable(function (TokenInvalidException $e, $request) {
 
-            return response()->json(['erreur'=> 'Le token est invalide!'], Response::HTTP_BAD_REQUEST);
+            return response()->json(['error'=> 'Le token est invalide!'], Response::HTTP_BAD_REQUEST);
         });
 
         $this->renderable(function (TokenExpiredException $e, $request) {
 
-            return response()->json(['erreur'=> 'Le token as expiré !'], Response::HTTP_BAD_REQUEST);
+            return response()->json(['error'=> 'Le token as expire !'], Response::HTTP_BAD_REQUEST);
         });
 
         $this->renderable(function (JWTException $e, $request) {
 
-            return response()->json(["erreur'=> Le token n'existe pas! "], Response::HTTP_BAD_REQUEST);
+            return response()->json(["error'=> Le token n'existe pas! "], Response::HTTP_BAD_REQUEST);
         });
 
         $this->renderable(function (TokenBlacklistedException $e, $request) {
 
-            return response()->json(["erreur'=> Ce token ne peut être utilisé obenez en un nouveau!"], Response::HTTP_BAD_REQUEST);
+            return response()->json(["error'=> Ce token ne peut être utilisé obenez en un nouveau!"], Response::HTTP_BAD_REQUEST);
         });
 
     }

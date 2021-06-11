@@ -31,13 +31,17 @@ class Question extends Model
     protected $fillable = ['title','slug','body','category_id','user_id'];
     // protected $guarded = [];
 
+    // uitiliser pour assoocier les reponses a une question
+    protected $with = ['replay'];
+
+
     public function user(){
         return $this->belongsTo(User::class);
     }
 
 
     public function replay(){
-        return $this->hasMany(Replay::class);
+        return $this->hasMany(Replay::class)->latest();
     }
 
     public function category(){

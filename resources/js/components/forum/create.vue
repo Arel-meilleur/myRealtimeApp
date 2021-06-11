@@ -1,10 +1,20 @@
 <template>
        <v-container>
+            <!-- <v-alert
+            v-if="errors"
+      dense
+      outlined
+      type="error"
+    >
+      Svp veuillez remplir tous les champs
+    </v-alert> -->
         <v-form
             @submit.prevent="create"
             ref="form"
             lazy-validation
         >
+
+            <span class="red--text" v-if="errors.title">{{errors.title[0]}} </span>
 
             <v-text-field
             label="Title"
@@ -12,7 +22,7 @@
             v-model="form.title"
             required
             ></v-text-field>
-
+            <span class="red--text" v-if="errors.title">{{errors.category_id[0]}} </span>
             <v-autocomplete
                 v-model="form.category_id"
                 :items="categories"
@@ -25,10 +35,11 @@
 
             ></v-autocomplete>
             <br/>
-
+            <span class="red--text" v-if="errors.title">{{errors.body[0]}} </span>
             <vue-simplemde v-model="form.body"> </vue-simplemde>
 
             <v-btn
+            :disabled="disabled"
             color="green"
             type="submit"
 
@@ -50,7 +61,9 @@ export default {
               category_id : null,
               body : null,
 
+
           },
+        //   errors: null,
 
           categories: {},
           errors: {},
@@ -62,11 +75,18 @@ export default {
         .then(res => this.categories = res.data.data )
     },
 
+    computed : {
+        disabled(){
+            return !(this.form.title && this.form.body && this.form.category_id)
+        }
+    },
+
     methods : {
         create(){
             axios.post('/api/question', this.form)
             .then(res => this.$router.push(res.data.path))
-            .catch(error => this.errors = error.response.data)
+            // .catch(error => Exception.handle(error))
+            .catch(error => this.errors = error.response.data.errors)
         }
     },
 

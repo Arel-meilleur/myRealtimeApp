@@ -27,6 +27,9 @@ window.md = md
 //importation du helpers pour les users
 import User from './Helpers/User'
 window.User = User
+
+import Exception from './Helpers/Exception'
+window.Exception = Exception
 // console.log(User.logout())
 // console.log(User.id())
 window.EventBus = new Vue();
