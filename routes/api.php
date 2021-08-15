@@ -43,4 +43,4 @@ Route::apiResource('/question', QuestionController::class);
 Route::apiResource('/category', CategoryController::class);
 Route::apiResource('/question/{question}/reply', ReplayController::class);
 Route::post('/like/{reply}', [LikeController::class, 'likeIt']);
-Route::post('/like/{reply}', [LikeController::class, 'unlikeIt']);
+Route::delete('/like/{reply}', [LikeController::class, 'unlikeIt']);

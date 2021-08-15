@@ -3,6 +3,7 @@
     <div>
 
         <toolbar></toolbar>
+        <login></login>
         <router-view></router-view>
         <app-footer></app-footer>
     </div>
